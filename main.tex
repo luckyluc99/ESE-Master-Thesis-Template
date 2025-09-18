@@ -1,0 +1,142 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[british]{babel} % Use British English
+\usepackage[onehalfspacing]{setspace} % Increase line spacing
+\usepackage[margin=2.5cm]{geometry} % Modify marginsa
+\usepackage{graphicx,booktabs,apacite} % Packages for images, tables, and APA citations
+\usepackage[round]{natbib}
+\usepackage{amsmath,amssymb}
+\usepackage{dsfont}
+\usepackage{subcaption}
+\usepackage[justification=raggedright, singlelinecheck=false]{caption}
+% Uncomment for small table and figure captions
+% \captionsetup[table]{font=small} 
+% \captionsetup[figure]{font=small}
+\usepackage{float}
+\usepackage{afterpage}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{dirtytalk}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{siunitx}
+\usepackage{threeparttablex}
+\usepackage{relsize}
+\usepackage{bm}
+
+\DeclareMathOperator{\E}{\mathbb{E}} % Declares a new math operator for Expectation (E)
+\DeclareMathOperator*{\argmax}{argmax} % Declares a new math operator for argmax with limits below/above
+\DeclareMathOperator*{\argmin}{argmin} % Declares a new math operator for argmin with limits below/above
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor} % Defines a command for floor brackets
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil} % Defines a command for ceiling brackets
+
+\newcommand{\colhead}[2]{\multicolumn{1}{c}{\begin{tabular}{@{}c@{}}#1\\#2\end{tabular}}} % Custom command for multi-line column headers in tables
+\newcommand{\colheadsingle}[1]{\multicolumn{1}{c}{#1}} % Custom command for single-line column headers in tables
+
+\newcommand{\rowhead}[2]{\begin{tabular}{@{}l@{}}#1\\#2\end{tabular}} % Custom command for multi-line row headers in tables
+\newcommand{\rowheadsingle}[1]{#1} % Custom command for single-line row headers in tables
+
+\newcommand{\subsectionNoTOC}[1]{% % Custom command for subsections that are numbered but not added to the TOC
+  \refstepcounter{subsection}%
+  \subsection*{\thesubsection\quad #1}%
+}
+
+\author{Name (123456)}
+\title{Title of the Report}
+\newcommand{\program}{Master Thesis [Program Name]} % e.g., Econometrics and Management Science
+\newcommand{\supervisor}{}
+\newcommand{\secondassesor}{}
+\newcommand{\compfirst}{}
+\newcommand{\compsecond}{}
+
+\begin{document}
+
+\begin{titlepage}
+\makeatletter
+\begin{center}
+	\textsc{Erasmus University Rotterdam}
+	\par \textsc{Erasmus School of Economics}
+	\par  \program
+
+	\vfill \hrule height .08em \bigskip
+	\par\huge\@title\bigskip
+	\par\Large\@author\,\bigskip
+	\hrule height .08em\normalsize
+	
+	\vfill
+	\includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{Figures/eur.png} % The EUR logo, but this could also be another image
+	\vfill
+	
+	\begin{tabular}{ll}
+		\toprule
+		Supervisor: & \supervisor\\
+		Second assessor: & \secondassesor\\
+        Company supervisor: & \compfirst\\
+        Company supervisor: & \compsecond\\
+		Date final version: & \today\\
+		\bottomrule
+	\end{tabular}
+	
+	\vfill
+	The views stated in this report are those of the author and not necessarily those of the supervisor, second assessor, Erasmus School of Economics, or Erasmus University Rotterdam.
+\end{center}
+\makeatother
+\end{titlepage}
+
+\thispagestyle{empty}
+
+
+\newpage
+\section*{Abstract}
+\input{abstract}
+
+\newpage
+\pagenumbering{gobble}
+\clearpage
+\begin{spacing}{1.2}
+  \tableofcontents
+\end{spacing}
+\thispagestyle{empty}
+
+\pagenumbering{arabic}  
+
+\newpage\setcounter{page}{1}
+
+\section{Introduction}\label{sec:introduction}
+\input{introduction}
+
+\section{Literature Review}\label{sec:LitRev}
+\input{literature review}
+
+\section{Data}\label{sec:data}
+\input{data}
+
+\section{Methodology}\label{sec:methodology}
+\input{methodology}
+
+\section{Results}\label{sec:results}
+\input{results}
+
+\section{Conclusion}\label{sec:conclusion}
+\input{conclusion}
+
+\newpage
+\bibliographystyle{eurplainnat}
+\bibliography{references}
+
+\newpage
+
+\section*{Appendix}
+\appendix
+\addcontentsline{toc}{section}{Appendix}
+\input{appendix}
+
+\end{document}
